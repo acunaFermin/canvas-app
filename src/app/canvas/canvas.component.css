@@ -1,0 +1,85 @@
+.canvas_ {
+  margin-top: 2px;
+  height: 100vh;
+  z-index: 10;
+}
+.fixedCanvas {
+  position: fixed;
+  height: fit-content;
+  width: 100%;
+}
+
+.fixedForm {
+  position: relative;
+}
+.canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(133, 240, 188);
+}
+.slide {
+  margin: 5px;
+}
+
+.botonera {
+  display: flex;
+  flex-direction: row;
+}
+
+.boton {
+  background-color: aqua;
+  border: solid;
+  border-radius: 5px;
+  font-size: 25px;
+  margin: 5px;
+}
+
+.reset {
+  background-color: rgb(221, 255, 0);
+}
+
+.stop {
+  background-color: rgb(220, 20, 60);
+}
+
+.datos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 5px;
+}
+
+.input {
+  margin: 5px;
+  font-size: 25px;
+  width: 100px;
+  height: 40px;
+  padding-left: 20px;
+}
+
+.color {
+  margin: 5px;
+  width: 100px;
+  height: 40px;
+}
+
+.range {
+  margin: 20px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}

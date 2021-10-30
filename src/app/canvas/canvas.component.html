@@ -1,0 +1,138 @@
+<div fxLayout="row wrap" fxLayout.lt-sm="column">
+  <div
+    ngClass.lt-sm="fixedForm"
+    [style.top]="altura"
+    fxFlexOrder.lt-sm="2"
+    fxFlex="30"
+    fxFlex.sm="40"
+    fxLayoutAlign="center center"
+  >
+    <div class="datos">
+      <div class="botonera">
+        <button
+          id="idBoton"
+          mat-raised-button
+          class="boton"
+          [ngClass]="{ stop: this.hold == true && this.draw == true }"
+        >
+          <span *ngIf="this.hold == true && this.draw == true; else drawElse"
+            >Stop draw!</span
+          >
+          <ng-template #drawElse><span>Draw!</span></ng-template>
+        </button>
+
+        <button mat-raised-button class="boton reset" (click)="Reset()">
+          Reset
+        </button>
+      </div>
+      <div fxLayout="row">
+        <div class="slide" fxLayoutAlign="center center">
+          <mat-slide-toggle [(ngModel)]="hold" (ngModelChange)="Hold()"
+            >Hold the Line!</mat-slide-toggle
+          >
+        </div>
+
+        <div class="slide" fxLayoutAlign="center center">
+          <mat-slide-toggle
+            [(ngModel)]="finalDraw"
+            (ngModelChange)="FinalDraw()"
+            >Show final draw</mat-slide-toggle
+          >
+        </div>
+      </div>
+      <div fxLayout="row">
+        <p>Frecuency 1</p>
+        <input
+          class="input"
+          [(ngModel)]="frec1"
+          value="{{ frec1 }}"
+          type="number"
+          (ngModelChange)="reLoad()"
+        />
+      </div>
+      <div fxLayout="row">
+        <p>Frecuency 2</p>
+        <input
+          class="input"
+          [(ngModel)]="frec2"
+          value="{{ frec2 }}"
+          type="number"
+          (ngModelChange)="reLoad()"
+        />
+      </div>
+
+      <input
+        class="color"
+        [(ngModel)]="color"
+        value="{{ color }}"
+        type="color"
+      />
+      <mat-slide-toggle style="margin: 10px" [(ngModel)]="colorStatus"
+        >Dynamic Color!</mat-slide-toggle
+      >
+      <div class="grosor" fxLayout="column" fxLayoutAlign="center center">
+        <div fxLayout="row">
+          <p fxLayoutAlign="center">Grosor adjust</p>
+          <input
+            class="range"
+            type="range"
+            [(ngModel)]="grosor"
+            [min]="grosorMin"
+            [max]="grosorMax"
+            step="0.1"
+          />
+        </div>
+        <mat-slide-toggle style="margin: 10px" [(ngModel)]="grosorStatus"
+          >Dynamic Grosor!</mat-slide-toggle
+        >
+        <div fxLayout="row">
+          <p>Grosor change</p>
+
+          <input
+            class="range"
+            type="range"
+            [step]="grosorStep"
+            min="1"
+            [max]="this.frec1"
+            [(ngModel)]="grosorVel"
+          />
+        </div>
+        <div fxLayout="row">
+          <p>Min grosor</p>
+          <input
+            class="input"
+            type="number"
+            [(ngModel)]="grosorMin"
+            value="{{ grosorMin }}"
+          />
+        </div>
+        <div fxLayout="row">
+          <p>Max grosor</p>
+          <input
+            class="input"
+            type="number"
+            [(ngModel)]="grosorMax"
+            value="{{ grosorMax }}"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    [ngClass.lt-sm]="{ fixedCanvas: true }"
+    class="canvas_"
+    fxFlexOrder.lt-sm="1"
+    fxFlex="70"
+    fxFlex.sm="60"
+    fxLayoutAlign="center center"
+  >
+    <canvas
+      class="canvas"
+      #miCanvas
+      id="canvasId"
+      width="{{ innerWidth }}"
+      height="{{ innerHeight }}"
+    ></canvas>
+  </div>
+</div>
